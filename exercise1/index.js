@@ -26,10 +26,10 @@ function calculateGold(m, d, k, c) {
             return -1;
         }
 
-        gold -= timesToRepair * c;
+        gold += timesToRepair * c;
         durability = d;
-        kills -= Math.floor(durability / k);
-        durability -= Math.floor(durability / k) * k;
+        kills -= Math.floor(durability / (k * timesToRepair));
+        durability -= Math.floor(durability / (k * timesToRepair)) * k * timesToRepair;
     }
 
     return gold;
